@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
     port: 465,
     secure: true,
     auth: {
-      user: 'loyaltysamuel001@gmail.com',
-      pass: 'ayomidezz'
+      user: 'jpdfdfd@gmail.com',
+      pass: 'fdfdfdf'
     }
   });
 
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
   
   let mailDetails = {
     from: sender,
-    to: 'aiyenigbaemmanueljuwon@gmail.com, cachalleluyahchapel@gmail.com',
+    to: 'manfdfdfdueljuwon@gmail.com, cacahchapel@gmail.com',
     subject: 'writing',
     text: 'this is me sending a mail from my node. Sweet right?'
   
