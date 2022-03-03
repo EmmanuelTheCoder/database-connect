@@ -64,34 +64,35 @@ postMod.get("/update",  (req, res) =>{
     
 });
 
-postMod.post("/test", async (req, res) =>{
-    const extraSchema = new mongoose.Schema({
-        name: {
-            type: String,
-            required: true
-        },
-        age: {
-            type: Number,
-            required: true
-        }
-    });
+postMod.post("/test",  (req, res) =>{
 
-    const setPost = await Post({
-        title: "testing out title",
-        description: "I hope this will work",
-        name: "Adeola",
-        age: 32
-    })
+    // const extraSchema = new mongoose.Schema({
+    //     name: {
+    //         type: String,
+    //         required: true
+    //     },
+    //     age: {
+    //         type: Number,
+    //         required: true
+    //     }
+    // });
 
-    try{
-        const saveNewPost = await setPost.save()
-        res.json(saveNewPost)
-    }
-    catch(err){
-        res.send("invalid! something wrong happened")
-    }
+    // const setPost = await Post({
+    //     title: req.body.title,
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     age: req.body.age
+    // })
 
-    Post.add(extraSchema);
+    // try{
+    //     const saveNewPost = await setPost.save()
+    //     res.json(saveNewPost)
+    // }
+    // catch(err){
+    //     res.send("invalid! something wrong happened")
+    // }
+
+    // Post.add(extraSchema);
 
 
 
