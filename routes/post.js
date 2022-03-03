@@ -41,25 +41,60 @@ postMod.post("/", async (req, res) =>{
 });
 
 postMod.get("/update",  (req, res) =>{
-    Post.findOneAndUpdate(
-        {
-            title: "changed"
-        },
-        {
-            title: "changed again"
-        },
-        {
-            new: true,
-            //runValidators: true
-        },
-    ).then(doc =>{
-        return res.json(doc)
-    }).catch(err => res.json(err))
+    // Post.findOneAndUpdate(
+    //     {
+    //         title: "changed again"
+    //     },
+    //     {
+    //         title: "rendering unchanged"
+    //     },
+    //     {
+    //         new: true,
+    //         //runValidators: true
+    //     },
+    // ).then(doc =>{
+    //     return res.json(doc)
+    // }).catch(err => res.json(err))
 
     // Post.findOneAndRemove({
-    //     email: "ssshitessdee@gmail.com"
+    //     title: "rendering unchanged"
     // }).then(res => res.json(res))
-    // .catch(err => res.json(err));
+    // .catch(err => console.error(err));
+
+    
+});
+
+postMod.post("/test", async (req, res) =>{
+    const extraSchema = new mongoose.Schema({
+        name: {
+            type: String,
+            required: true
+        },
+        age: {
+            type: Number,
+            required: true
+        }
+    });
+
+    const setPost = await Post({
+        title: "testing out title",
+        description: "I hope this will work",
+        name: "Adeola",
+        age: 32
+    })
+
+    try{
+        const saveNewPost = await setPost.save()
+        res.json(saveNewPost)
+    }
+    catch(err){
+        res.send("invalid! something wrong happened")
+    }
+
+    Post.add(extraSchema);
+
+
+
 })
 
 module.exports = postMod;
