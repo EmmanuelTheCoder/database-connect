@@ -13,6 +13,14 @@ register.post("/", async (req, res) =>{
         email: req.body.email,
         password: req.body.password
     })
+
+    try{
+        const user = await signUp.save()
+        res.status(200).json({message: "success", detail: user})
+    }
+    catch(err){
+        res.status(401).json({message: "failed", error: err})
+    }
 })
 
 module.exports = register
