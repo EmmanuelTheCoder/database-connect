@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-module.exports = (req, res, next) =>{
+const verify = (req, res, next) =>{
     const token = req.header("auth-token")
 
     if (!token){
@@ -10,9 +10,10 @@ module.exports = (req, res, next) =>{
     try{
         const verified = jwt.verify(token, `${process.env.SECRET_PASS}`);
         req.user = verified
+        next()
     }catch(err){
         res.status(400).json({message: "an error occured", err})
     }
 }
 
-//module.exports = Verify
+module.exports = verify
