@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
 
-const Post = new mongoose.Schema({
-    title: {
+const User = new mongoose.Schema({
+    username: {
         type: String,
         required: true
     },
-    description: {
+    email: {
         type: String,
         required: true
+    },
+    password: {
+        type: String,
+        required: true,
+        min: 8
     },
     date:{
         type: Date,
@@ -16,4 +21,4 @@ const Post = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model("post", Post);
+module.exports = mongoose.model("post", User);
