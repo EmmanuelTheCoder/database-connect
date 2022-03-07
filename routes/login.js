@@ -17,4 +17,4 @@ login.post("/", async (req, res) =>{
       
 });
 
-module.export = login
+module.exports = login
